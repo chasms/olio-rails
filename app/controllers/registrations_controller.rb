@@ -1,4 +1,5 @@
 class RegistrationsController < ApplicationController
+	
 	def create
    	 	@account=Account.new(email: params[:email], password: params[:password])
     	if @account.save
