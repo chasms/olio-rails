@@ -1,7 +1,12 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+Addon.create!(:url => "http://chas.ms/moustaches/M1.svg", :initial_height => 100, :initial_width => 150)
+Addon.create!(:url => "http://chas.ms/moustaches/M2.svg", :initial_height => 100, :initial_width => 150)
+Addon.create!(:url => "http://chas.ms/moustaches/M3.svg", :initial_height => 100, :initial_width => 150)
+Addon.create!(:url => "http://chas.ms/moustaches/M4.svg", :initial_height => 100, :initial_width => 150)
+Addon.create!(:url => "http://chas.ms/moustaches/M5.svg", :initial_height => 100, :initial_width => 150)
+Addon.create!(:url => "http://chas.ms/moustaches/M6.svg", :initial_height => 100, :initial_width => 150)
+Addon.create!(:url => "http://chas.ms/moustaches/M7.svg", :initial_height => 100, :initial_width => 150)
+Addon.create!(:url => "http://chas.ms/moustaches/M8.svg", :initial_height => 100, :initial_width => 150)
+Addon.create!(:url => "http://chas.ms/moustaches/M9.svg", :initial_height => 100, :initial_width => 150)
+Addon.create!(:url => "http://chas.ms/moustaches/M10.svg", :initial_height => 100, :initial_width => 150)
+Addon.create!(:url => "http://chas.ms/moustaches/M10.svg", :initial_height => 100, :initial_width => 150)
+Addon.create!(:url => "http://chas.ms/moustaches/M11.svg", :initial_height => 100, :initial_width => 150)
