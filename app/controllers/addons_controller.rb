@@ -7,5 +7,6 @@ class AddonsController < ApplicationController
 
 	def show
 		@addon = Addon.find(params[:id])
+		render json: @addon
 	end
 end
