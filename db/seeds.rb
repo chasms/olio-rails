@@ -8,6 +8,5 @@ Addon.create!(:url => "http://chas.ms/olio/moustaches/M7.svg", :initial_height =
 Addon.create!(:url => "http://chas.ms/olio/moustaches/M8.svg", :initial_height => 100, :initial_width => 150)
 Addon.create!(:url => "http://chas.ms/olio/moustaches/M9.svg", :initial_height => 100, :initial_width => 150)
 Addon.create!(:url => "http://chas.ms/olio/moustaches/M10.svg", :initial_height => 100, :initial_width => 150)
-Addon.create!(:url => "http://chas.ms/olio/moustaches/M10.svg", :initial_height => 100, :initial_width => 150)
 Addon.create!(:url => "http://chas.ms/olio/moustaches/M11.svg", :initial_height => 100, :initial_width => 150)
 Addon.create!(:url => "http://chas.ms/olio/Octosteve.svg", :initial_height => 500, :initial_width => 750)
