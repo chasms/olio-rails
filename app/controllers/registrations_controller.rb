@@ -1,12 +1,16 @@
 class RegistrationsController < ApplicationController
-	
-	def create
-   	 	@account=Account.new(email: params[:email], password: params[:password])
-    	if @account.save
-     	 	render json: @account
-    	else
-      		render json: @account.errors.full_messages #status
-    	end
+  def create
+  	account = Account.new(account_params)
+  	if account.save
+  		token = Auth.issue({account_id: account.id})
+  		render json: {token: token}
+  	else
+  		render json: "Error creating account #{account.username}", status: 401
   	end
-end
+  end
 
+  private
+  def account_params
+  	params.require(:account).permit(:username, :email, :password)
+  end
+end

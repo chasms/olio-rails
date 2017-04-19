@@ -1,17 +1,9 @@
 class CategoriesController < ApplicationController
 
 	def index
-		render json: @categories = Category.all
+		render json: @categories = Category.order('id DESC')
 	end
 
-	# def create
- # 	 	@category = Category.new(name: params[:name])
-  # 	if @category.save
-  #  	 	redirect_to @category
-  # 	else
-  # 		render json: @category.errors.full_messages #status
-  # 	end
-	# end
 
 	def show
 		@category = Category.where(name: params[:name]).first
