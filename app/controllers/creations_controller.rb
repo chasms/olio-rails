@@ -1,13 +1,13 @@
 class CreationsController < ApplicationController
-
-	ActionController::Parameters.permit_all_parameters
+	skip_before_action :authenticate
 
 	def index
-		render json: Creations.find_by(auth)
+		render json: Creation.find_by(account_id: 3)
 	end
 
 
 	def show
+		render json: Creation.find(params[:id])
 	end
 
   def create
