@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def current_account
     if auth_present?
-      account = User.find(auth["account"])
+      account = Account.find(auth[0]["account_id"])
       if account
         @current_account ||= account
       end
@@ -21,11 +21,8 @@ class ApplicationController < ActionController::Base
 
   end
 
-  private
-
   def token
-    request.env["HTTP_AUTHORIZATION"].scan(/Bearer
-    (.*)$/).flatten.last
+    request.env["HTTP_AUTHORIZATION"].gsub('Bearer ', '')
   end
 
   def auth
