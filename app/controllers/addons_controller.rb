@@ -1,7 +1,7 @@
 class AddonsController < ApplicationController
 
 	def index
-		@addons = Addon.all
+		@addons = Category.all
 		render json: @addons
 	end
 
