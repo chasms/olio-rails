@@ -1,7 +1,7 @@
 class CategoriesController < ApplicationController
-
+	skip_before_action :authenticate
 	def index
-		render json: @categories = Category.order('id DESC')
+		render json: @categories = Category.all
 	end
 
 
