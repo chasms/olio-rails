@@ -2,7 +2,6 @@ class RegistrationsController < ApplicationController
 	skip_before_action :authenticate
 
   def create
-		byebug
   	account = Account.new(account_params)
   	if account.save
   		token = Auth.issue({account_id: account.id})
