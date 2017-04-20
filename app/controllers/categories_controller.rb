@@ -1,17 +1,9 @@
 class CategoriesController < ApplicationController
-
+	skip_before_action :authenticate
 	def index
 		render json: @categories = Category.all
 	end
 
-	# def create
- # 	 	@category = Category.new(name: params[:name])
-  # 	if @category.save
-  #  	 	redirect_to @category
-  # 	else
-  # 		render json: @category.errors.full_messages #status
-  # 	end
-	# end
 
 	def show
 		@category = Category.where(name: params[:name]).first
