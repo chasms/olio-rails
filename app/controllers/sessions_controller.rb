@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def create
+    byebug
     account = Account.find_by(email: session_params[:email])
     if account.authenticate(session_params[:password])
       jwt = Auth.issue({account: account.id})
