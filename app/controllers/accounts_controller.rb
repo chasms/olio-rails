@@ -1,7 +1,5 @@
 class AccountsController < ApplicationController
 
-	has_secure_password
-
 	def index
     	@accounts = Account.all
     	render json: @accounts
