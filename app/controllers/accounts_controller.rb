@@ -1,7 +1,5 @@
 class AccountsController < ApplicationController
 
-	has_secure_password
-
 	def index
     	@accounts = Account.all
     	render json: @accounts
@@ -12,4 +10,5 @@ class AccountsController < ApplicationController
   	def account_params
     	params.require(:account).permit(:username, :email, :password)
   	end
+
 end

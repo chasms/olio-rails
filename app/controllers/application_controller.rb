@@ -18,7 +18,6 @@ class ApplicationController < ActionController::Base
     unless logged_in?
       render json: {error: "unauthorized"}, status: 401
     end
-
   end
 
   def token
