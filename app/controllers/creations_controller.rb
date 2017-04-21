@@ -1,8 +1,9 @@
 class CreationsController < ApplicationController
-	skip_before_action :authenticate
+	# skip_before_action :authenticate
 
 	def index
-		render json: Creation.find_by(account_id: 3)
+		# byebug
+		render json: Creation.where(account_id: auth[0]['account_id'])
 	end
 
 
@@ -16,7 +17,7 @@ class CreationsController < ApplicationController
     creation = Creation.new(composition: json)
 		creation.account = current_account
 		if creation.save
-			render json: creation
+			render json: Creation.where(account_id: auth[0]['account_id'])
   	else
   		render json: "Error saving your creation", status: 401
   	end
