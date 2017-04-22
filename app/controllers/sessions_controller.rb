@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
+
   skip_before_action :authenticate
+
   def create
     byebug
     account = Account.find_by(email: session_params[:email])
@@ -13,8 +15,8 @@ class SessionsController < ApplicationController
 
   private
 
-    def session_params(*args)
-      params.permit(*args)
+    def session_params()
+      params.require(:sessions).permit(:username, :password)
     end
 
 end
