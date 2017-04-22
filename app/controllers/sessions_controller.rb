@@ -1,12 +1,12 @@
 class SessionsController < ApplicationController
-  skip_before :authenticate
+
+  skip_before_action :authenticate
 
   def create
-    byebug
-    account = Account.find_by(username: session_params(:username).downcase)
-    if account.try(:authenticate, session_params(:password))
-      token = Auth.issue({account_id: account.id})
-      render json: {token: token}
+    account = Account.find_by(username: session_params[:username])
+    if account.authenticate(session_params[:password])
+      jwt = Auth.issue({account: account.id})
+      render json: {token: jwt}
     else
       render json: "Your username or password was incorrect", status: 401
     end
@@ -14,8 +14,8 @@ class SessionsController < ApplicationController
 
   private
 
-    def session_params()
-      params.require(:sessions).permit(:username, :password)
-    end
 
+    def session_params
+      params.permit(:username, :password)
+    end
 end

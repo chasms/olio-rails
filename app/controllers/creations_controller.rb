@@ -2,7 +2,6 @@ class CreationsController < ApplicationController
 	# skip_before_action :authenticate
 
 	def index
-		# byebug
 		render json: Creation.where(account_id: auth[0]['account_id'])
 	end
 
@@ -23,6 +22,15 @@ class CreationsController < ApplicationController
   	end
 
   end
+
+	def destroy
+		creation = Creation.where(account_id: auth[0]['account_id'], id: params[:id])
+		if (creation.delete)
+			render json: Creation.where(account_id: auth[0]['account_id'])
+		else
+			render json: "Error deleting your creation", status: 401
+		end
+	end
 
 
   private
