@@ -2,7 +2,6 @@ class CreationsController < ApplicationController
 	# skip_before_action :authenticate
 
 	def index
-		# byebug
 		render json: Creation.where(account_id: auth[0]['account_id'])
 	end
 

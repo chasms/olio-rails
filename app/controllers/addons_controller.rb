@@ -9,4 +9,5 @@ class AddonsController < ApplicationController
 		@addon = Addon.find(params[:id])
 		render json: @addon
 	end
+	
 end
