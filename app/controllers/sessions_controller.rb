@@ -1,5 +1,7 @@
 class SessionsController < ApplicationController
+
   skip_before_action :authenticate
+
   def create
     account = Account.find_by(username: session_params[:username])
     if account.authenticate(session_params[:password])
@@ -12,8 +14,8 @@ class SessionsController < ApplicationController
 
   private
 
+
     def session_params
       params.permit(:username, :password)
     end
-
 end
