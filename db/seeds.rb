@@ -10,6 +10,13 @@ Category.create(name: 'emojis')
   Addon.create!(url: "http://chas.ms/olio/emojis/E#{i+1}.svg", :initial_height => 100, :initial_width => 100, category_id: 2)
 end
 
-# Octosteve, category='miscellaneous', category_id=3
+# fonts, category='text', category_id=3
+
+Category.create(name: 'text')
+Addon.fonts.each do |i|
+  Addon.create!(url: "https://fonts.googleapis.com/css?family=#{i}", :initial_height => 200, :initial_width => 200, category_id: 3)
+end
+
+# Octosteve, category='miscellaneous', category_id=4
 Category.create(name: 'miscellaneous')
-Addon.create!(url: "http://chas.ms/olio/Octosteve.svg", :initial_height => 200, :initial_width => 200, category_id: 3)
+Addon.create!(url: "http://chas.ms/olio/Octosteve.svg", :initial_height => 200, :initial_width => 200, category_id: 4)
