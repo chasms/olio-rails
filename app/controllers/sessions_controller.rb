@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       jwt = Auth.issue({account: account.id})
       render json: {token: jwt}, status: 200
     else
-      render json: "Your username or password was incorrect", status: 401
+      render :json => { :errors => account.errors.full_messages }, :status => 422
     end
   end
 

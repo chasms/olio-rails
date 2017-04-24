@@ -13,13 +13,14 @@ class CreationsController < ApplicationController
 
   def create
 		data = request.env['RAW_POST_DATA']
+		title = JSON.parse(data)['title']
 		json = JSON.parse(data)['addons']
-    creation = Creation.new(composition: json)
+    creation = Creation.new(composition: json, title: title)
 		creation.account = current_account
 		if creation.save
 			render json: current_account.creations
   	else
-  		render json: "Error saving your creation", status: 401
+  		render :json => { :errors => creation.errors.full_messages }, :status => 422
   	end
 
   end
