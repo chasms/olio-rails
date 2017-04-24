@@ -3,7 +3,9 @@ class SessionsController < ApplicationController
   skip_before_action :authenticate
 
   def create
+
     account = Account.find_by(username: session_params[:username])
+    byebug
     if account.authenticate(session_params[:password])
       jwt = Auth.issue({account: account.id})
       render json: {token: jwt}, status: 200
