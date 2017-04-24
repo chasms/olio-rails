@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def current_account
     if auth_present?
-      account = Account.find(auth[0]["account_id"])
+      account = Account.find(auth[0]["account"])
       if account
         @current_account ||= account
       end
