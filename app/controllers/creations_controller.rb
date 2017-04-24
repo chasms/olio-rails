@@ -1,8 +1,9 @@
 class CreationsController < ApplicationController
-	# skip_before_action :authenticate
+	skip_before_action :authenticate
 
 	def index
-		render json: Creation.where(account_id: auth[0]['account_id'])
+
+		render json: current_account.creations
 	end
 
 
@@ -16,7 +17,7 @@ class CreationsController < ApplicationController
     creation = Creation.new(composition: json)
 		creation.account = current_account
 		if creation.save
-			render json: Creation.where(account_id: auth[0]['account_id'])
+			render json: current_account.creations
   	else
   		render json: "Error saving your creation", status: 401
   	end
@@ -24,9 +25,10 @@ class CreationsController < ApplicationController
   end
 
 	def destroy
-		creation = Creation.where(account_id: auth[0]['account_id'], id: params[:id])
-		if (creation.delete)
-			render json: Creation.where(account_id: auth[0]['account_id'])
+
+		creation = Creation.where(account: current_account, id: params[:id])[0]
+		if creation.delete
+			render json: current_account.creations
 		else
 			render json: "Error deleting your creation", status: 401
 		end
