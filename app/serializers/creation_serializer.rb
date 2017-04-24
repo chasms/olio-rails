@@ -1,3 +1,3 @@
 class CreationSerializer < ActiveModel::Serializer
-  attributes :id, :composition
+  attributes :id, :composition, :title
 end
