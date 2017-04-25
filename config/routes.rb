@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 	resources :categories, only: [:index]
 	get '/categories/:name', to: 'categories#show'
 	resources :registrations, only: [:create]
-	resources :creations, only: [:index, :show, :create, :destroy]
+	resources :creations
 	post '/signup', to: 'registrations#create'
 	post '/login', to: 'sessions#create'
 	get '/addons', to: 'categories#addons'

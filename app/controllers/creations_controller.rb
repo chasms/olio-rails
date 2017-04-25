@@ -25,6 +25,19 @@ class CreationsController < ApplicationController
 
   end
 
+	def update
+		byebug
+		data = request.env['RAW_POST_DATA']
+		json = JSON.parse(data)['addons']
+		creation = Creation.where(account: current_account, id: params[:id])[0]
+		creation.composition = json
+		if creation.save
+			render json: current_account.creations
+  	else
+  		render :json => { :errors => 'Error updating your creation' }, :status => 422
+  	end
+	end
+
 	def destroy
 
 		creation = Creation.where(account: current_account, id: params[:id])[0]
