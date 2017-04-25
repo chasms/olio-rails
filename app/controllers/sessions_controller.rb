@@ -7,7 +7,7 @@ class SessionsController < ApplicationController
     account = Account.find_by(username: session_params[:username])
     if account.authenticate(session_params[:password])
       jwt = Auth.issue({account: account.id})
-      render json: {token: jwt}, status: 200
+      render json: {token: jwt, creations: account.creations}, status: 200
     else
       render :json => { :errors => account.errors.full_messages }, :status => 422
     end
