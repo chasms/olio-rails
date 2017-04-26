@@ -5,7 +5,7 @@ class RegistrationsController < ApplicationController
 		account = Account.new(account_params)
 		if account.save
 			token = Auth.issue({account: account.id})
-			render json: {token: token}
+			render json: {token: token, account: account.username}
 		else
 			render :json => { :errors => account.errors.full_messages }, :status => 422
 		end

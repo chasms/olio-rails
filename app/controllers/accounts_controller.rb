@@ -1,9 +1,9 @@
 class AccountsController < ApplicationController
 
-	def index
-    	@accounts = Account.all
-    	render json: @accounts
+		def index
+    	render json: current_account
   	end
+
 
   	private
 
