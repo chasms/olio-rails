@@ -3,9 +3,9 @@ Addon.destroy_all
 Category.destroy_all
 Creation.destroy_all
 Account.destroy_all
-Category.create(name: 'moustaches')
-11.times do |i|
-  Addon.create!(url: "http://chas.ms/olio/moustaches/M#{i+1}.svg", initial_height: 100, initial_width: 150, category_id: 1)
+Category.create(name: 'hairstyles')
+26.times do |i|
+  Addon.create!(url: "http://chas.ms/olio/hairstyles/H#{i+1}.svg", initial_height: 100, initial_width: 150, category_id: 1)
 end
 
 # emojis, category='emojis', category_id=2
