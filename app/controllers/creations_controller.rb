@@ -26,11 +26,12 @@ class CreationsController < ApplicationController
   end
 
 	def update
-		byebug
 		data = request.env['RAW_POST_DATA']
 		json = JSON.parse(data)['addons']
+		title = JSON.parse(data)['title']
 		creation = Creation.where(account: current_account, id: params[:id])[0]
 		creation.composition = json
+		creation.title = title
 		if creation.save
 			render json: current_account.creations
   	else
