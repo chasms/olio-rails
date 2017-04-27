@@ -3,7 +3,7 @@ class RegistrationsController < ApplicationController
 
 	def create
 		account = Account.new(account_params)
-		creation = Creation.find(1)
+		creation = Creation.find(3)
 		about_us = Creation.new(composition: creation.composition, title: creation.title)
 		account.creations << creation
 		if account.save
