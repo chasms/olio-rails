@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
 
   def create
 
-    account = Account.find_by(username: session_params[:username])
+    account = Account.find_by(username: session_params[:username].downcase)
     if account.authenticate(session_params[:password])
       jwt = Auth.issue({account: account.id})
       render json: {token: jwt, creations: account.creations, account: account.username}, status: 200
