@@ -17,8 +17,11 @@ end
 # fonts, category='text', category_id=3
 
 Category.create(name: 'text')
-Addon.fonts.each do |i|
-  Addon.create!(url: "https://fonts.googleapis.com/css?family=#{i}", :initial_height => 200, :initial_width => 200, category_id: 3)
+
+Addon.fonts.each.with_index do |font, i|
+  if i % 7 == 0
+    Addon.create!(url: "https://fonts.googleapis.com/css?family=#{font}", :initial_height => 200, :initial_width => 200, category_id: 3)
+  end
 end
 
 # Octosteve, category='miscellaneous', category_id=4
