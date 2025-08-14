@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+	# OpenAPI / Swagger UI
+	mount Rswag::Ui::Engine => '/api-docs'
+	mount Rswag::Api::Engine => '/api-docs'
 	resources :accounts, only: [:index, :create]
 	resources :categories, only: [:index]
 	get '/categories/:name', to: 'categories#show'

@@ -61,10 +61,12 @@ Troubleshooting quick tips:
 ## Stack
 
 - Rails (~> 5.0.2) (API mode) – see `config/application.rb`
+- Ruby 2.6.10 (see `.ruby-version` / Gemfile `ruby` directive; install via rbenv: `rbenv install 2.6.10`)
 - PostgreSQL
 - JWT auth via `Auth.issue` / `Auth.decode` (`lib/auth.rb`)
 - ActiveModel Serializers (0.10.0)
 - CORS enabled globally (Rack::Cors in `config/application.rb`)
+- OpenAPI docs served with rswag at `/api-docs`
 
 ## Data Model
 
@@ -177,6 +179,18 @@ bin/rails test
 ```
 
 Fixtures live in `test/fixtures/` (e.g. `addons.yml`).
+
+## API Documentation (OpenAPI)
+
+Interactive Swagger UI is available once the server is running at:
+
+```
+http://localhost:3000/api-docs
+```
+
+The underlying OpenAPI spec file lives at `config/swagger/v1.yaml` and is mounted under `/api-docs/v1/swagger.yaml`.
+
+To regenerate or extend docs, edit `config/swagger/v1.yaml` (rswag request spec generation not yet configured).
 
 ## Example cURL Workflow
 
