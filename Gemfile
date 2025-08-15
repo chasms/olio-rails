@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
 # Specify the Ruby version used for local development (see .ruby-version)
-ruby '2.6.10'
+ruby '3.4.5'
 
 git_source(:github) do |repo_name|
   repo_name = "#{repo_name}/#{repo_name}" unless repo_name.include?("/")
@@ -12,7 +12,7 @@ end
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.0.2'
 # Use postgresql as the database for Active Record
-gem 'pg', '~> 0.18'
+gem 'pg', '0.18.4'
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 gem 'active_model_serializers', '0.10.0'
