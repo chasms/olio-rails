@@ -1,2 +1,2 @@
-release: bin/setup
+release: bin/update
 web: bin/rails server
