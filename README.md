@@ -14,7 +14,6 @@ cd olio-rails
 # Ensure correct Ruby (see Gemfile). Example with rbenv:
 rbenv install $(grep -Eo '[0-9]\.[0-9]\.[0-9]+' Gemfile | head -1) || true
 gem install bundler
-cp config/secrets.yml.example config/secrets.yml 2>/dev/null || echo "Create config/secrets.yml (see snippet below)"
 bin/setup          # bundle install + db:setup (creates, migrates, seeds)
 bin/rails server   # starts Puma on http://localhost:3000
 ```
@@ -87,14 +86,14 @@ Authorization header format:
 Authorization: Bearer <token>
 ```
 
-Example secrets file (you must create it):
+Example secrets file:
 
 ```yml
 development:
 	secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 	hmac_secret: "dev_hmac_secret"
 test:
-	secret_key_base: <%= ENV["TEST_SECRET_KEY_BASE"] %>
+	secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
 	hmac_secret: "test_hmac_secret"
 production:
 	secret_key_base: <%= ENV["SECRET_KEY_BASE"] %>
