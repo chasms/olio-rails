@@ -10,13 +10,13 @@ end
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.0.2'
+gem 'rails', '~> 7.1.0'
 # Use postgresql as the database for Active Record
-gem 'pg', '0.18.4'
+gem 'pg', '~> 1.1'
 # Use Puma as the app server
-gem 'puma', '~> 3.0'
+gem 'puma'
 gem 'active_model_serializers', '0.10.0'
-gem 'nokogiri', '~> 1.13.10'
+gem 'nokogiri', '~> 1.14.0'
 gem 'poltergeist'
 gem 'phantomjs', :require => 'phantomjs/poltergeist'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
@@ -36,6 +36,7 @@ gem 'rswag-api'
 gem 'rswag-ui'
 gem 'nio4r', '~> 2.5'
 gem 'ffi', '>= 1.15.5'
+gem 'psych', '< 4'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
@@ -54,5 +55,5 @@ gem 'tzinfo-data', platforms: [:windows, :jruby]
 gem "bigdecimal", "~> 3.2"
 gem "mutex_m", "~> 0.3.0"
 gem "ostruct", "~> 0.6.3"
-
 gem "benchmark", "~> 0.4.1"
+gem "thread_safe", "~> 0.3.6"
