@@ -3,9 +3,9 @@ class RegistrationsController < ApplicationController
 
 	def create
 		account = Account.new(account_params)
-		creation = Creation.find(3)
-		about_us = Creation.new(composition: creation.composition, title: creation.title)
-		account.creations << creation
+		# creation = Creation.find(3)
+		# about_us = Creation.new(composition: creation.composition, title: creation.title)
+		# account.creations << creation
 		if account.save
 			token = Auth.issue({account: account.id})
 			render json: {token: token, account: account.username, creations: account.creations}
